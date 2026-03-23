@@ -13,25 +13,25 @@ st.set_page_config(
 )
 
 # ==========================================
-# 2. 史上最佳 CSS 美學 (Premium Dark + Glassmorphism)
+# 2. 史上最佳 CSS 美學 (晨光白・透光毛玻璃版)
 # ==========================================
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&display=swap');
 
-    /* 1. 全站深色流光背景 */
+    /* 1. 全站晨光漸層背景 */
     .stApp {
-        background: radial-gradient(circle at 50% -10%, #3A2610 0%, #0A0A0A 80%);
+        background: radial-gradient(circle at 50% 0%, #FFFFFF 0%, #F5F0E6 100%);
         font-family: 'Noto Sans TC', sans-serif;
-        color: #E0E0E0 !important;
+        color: #4A3B32 !important;
     }
     
-    p, div, span, label, .stMarkdown { color: #E0E0E0 !important; }
+    p, div, span, label, .stMarkdown { color: #4A3B32 !important; }
 
     header {visibility: hidden;}
     footer {display: none !important;}
     
-    /* 2. 頂部主視覺 (懸浮發光字體) */
+    /* 2. 頂部主視覺 (溫暖琥珀字體) */
     .hero-section {
         text-align: center;
         padding: 40px 10px 20px 10px;
@@ -41,74 +41,75 @@ st.markdown("""
     .hero-title { 
         font-size: 42px; 
         font-weight: 900; 
-        background: linear-gradient(to right, #FFD700, #FF8C00);
+        background: linear-gradient(to right, #B8860B, #D2691E);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         letter-spacing: 4px;
-        text-shadow: 0px 4px 20px rgba(255, 140, 0, 0.3);
+        text-shadow: 0px 2px 10px rgba(210, 105, 30, 0.15);
     }
     .hero-subtitle {
-        font-size: 16px; color: #AAAAAA; margin-top: 10px; letter-spacing: 2px;
+        font-size: 16px; color: #8B7355; margin-top: 10px; letter-spacing: 2px; font-weight: bold;
     }
 
-    /* 3. 毛玻璃卡片 (Glassmorphism) */
+    /* 3. 毛玻璃卡片 (Light Glassmorphism) */
     .glass-card {
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 255, 255, 0.65);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.9);
         border-radius: 24px;
         padding: 25px;
         margin-bottom: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 10px 30px rgba(139, 69, 19, 0.06);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .glass-card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 15px 40px rgba(255, 140, 0, 0.15);
-        border: 1px solid rgba(255, 140, 0, 0.3);
+        box-shadow: 0 15px 40px rgba(139, 69, 19, 0.12);
+        border: 1px solid rgba(255, 255, 255, 1);
     }
     
-    /* 住宿專用玻璃卡片 (邊框帶銅色質感) */
+    /* 住宿專用玻璃卡片 */
     .hotel-glass-card {
-        background: rgba(200, 150, 100, 0.05);
+        background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(12px);
         border-left: 4px solid #D4AF37;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        border-right: 1px solid rgba(255, 255, 255, 0.05);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.6);
+        border-right: 1px solid rgba(255, 255, 255, 0.6);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.6);
         border-radius: 16px;
         padding: 20px;
         margin-bottom: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         transition: all 0.3s ease;
     }
-    .hotel-glass-card:hover { background: rgba(200, 150, 100, 0.08); }
+    .hotel-glass-card:hover { background: rgba(255, 255, 255, 1); }
 
     /* 4. 輸入框質感優化 */
     div[data-baseweb="select"] > div, 
     div[data-baseweb="input"] > div {
-        background-color: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        color: #FFFFFF !important;
+        background-color: #FFFFFF !important;
+        border: 1px solid #EADDCD !important;
+        color: #4A3B32 !important;
         border-radius: 12px !important;
         min-height: 50px !important;
         transition: all 0.3s ease;
+        box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
     }
     div[data-baseweb="select"] > div:hover, 
     div[data-baseweb="input"] > div:hover {
-        border: 1px solid #FF8C00 !important;
-        background-color: rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid #D2691E !important;
     }
-    input, div[data-baseweb="select"] span { color: #FFFFFF !important; }
-    ul[data-baseweb="menu"] { background-color: #1A1A1A !important; border: 1px solid #333;}
-    li[data-baseweb="option"] { color: #FFF !important; }
-    li[data-baseweb="option"]:hover { background-color: #FF8C00 !important; color: #000 !important;}
-    svg { fill: #FFD700 !important; }
+    input, div[data-baseweb="select"] span { color: #4A3B32 !important; font-weight: bold; }
+    ul[data-baseweb="menu"] { background-color: #FFFFFF !important; border: 1px solid #EADDCD; box-shadow: 0 10px 20px rgba(0,0,0,0.1);}
+    li[data-baseweb="option"] { color: #4A3B32 !important; }
+    li[data-baseweb="option"]:hover { background-color: #FFF2E6 !important; color: #D2691E !important; font-weight: bold;}
+    svg { fill: #B8860B !important; }
 
-    /* 5. 終極發光按鈕 */
+    /* 5. 終極發光按鈕 (晨光橘) */
     .stButton > button {
         width: 100%;
-        background: linear-gradient(45deg, #FF8C00, #FF3D00) !important;
+        background: linear-gradient(45deg, #F2994A, #F2C94C) !important;
         color: #FFFFFF !important;
         border-radius: 50px;
         border: none;
@@ -116,39 +117,39 @@ st.markdown("""
         font-weight: 900;
         font-size: 20px;
         letter-spacing: 2px;
-        box-shadow: 0 8px 25px rgba(255, 61, 0, 0.4);
+        box-shadow: 0 8px 20px rgba(242, 153, 74, 0.3);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         margin-top: 15px;
     }
     .stButton > button:hover { 
         transform: scale(1.02);
-        box-shadow: 0 12px 35px rgba(255, 61, 0, 0.7);
-        background: linear-gradient(45deg, #FFA000, #FF5252) !important;
+        box-shadow: 0 12px 25px rgba(242, 153, 74, 0.5);
+        background: linear-gradient(45deg, #F2C94C, #F2994A) !important;
     }
     .stButton > button * { color: #FFFFFF !important; }
     
     /* 標籤與排版 */
     .spot-tag { 
-        font-size: 12px; background: rgba(255,255,255,0.1); color: #FFD700 !important; 
-        padding: 4px 12px; border-radius: 20px; margin-right: 8px; border: 1px solid rgba(255,215,0,0.3);
+        font-size: 12px; background: #FFF2E6; color: #D2691E !important; 
+        padding: 4px 12px; border-radius: 20px; margin-right: 8px; border: 1px solid rgba(210,105,30,0.2); font-weight: bold;
     }
-    .tag-red { background: rgba(255,61,0,0.2); color: #FF8C00 !important; border: 1px solid rgba(255,61,0,0.4); }
+    .tag-red { background: #FFEBEE; color: #C62828 !important; border: 1px solid rgba(198,40,40,0.2); }
     
     .day-header { 
-        background: linear-gradient(90deg, rgba(255,140,0,0.2) 0%, transparent 100%);
-        color: #FF8C00 !important; padding: 8px 20px; border-left: 4px solid #FF8C00;
+        background: linear-gradient(90deg, rgba(210,105,30,0.1) 0%, transparent 100%);
+        color: #B8860B !important; padding: 8px 20px; border-left: 4px solid #B8860B;
         font-size: 20px; font-weight: 900; margin: 30px 0 15px 0;
     }
     
-    /* 深色模式專屬警告框 (斷路器) */
+    /* 明亮模式專屬警告框 (斷路器) */
     .warning-box { 
-        background-color: rgba(255, 193, 7, 0.1); 
+        background-color: #FFF8E1; 
         border-left: 4px solid #FFC107; 
         padding: 16px; 
         border-radius: 8px; 
         margin-top: 10px; 
         margin-bottom: 20px;
-        color: #FFD700 !important; 
+        color: #856404 !important; 
         font-size: 14px;
         line-height: 1.6;
     }
@@ -205,7 +206,7 @@ def generate_dianguang_itinerary(days_str, group):
     return status_title, itinerary
 
 # ==========================================
-# 5. 頁面渲染 (玻璃卡片 UI)
+# 5. 頁面渲染 (明亮玻璃卡片 UI)
 # ==========================================
 st.markdown("""
     <div class="hero-section">
@@ -232,8 +233,8 @@ if st.session_state.get('generated'):
     
     st.markdown(f"""
     <div style="text-align: center; margin: 30px 0 10px 0;">
-        <h3 style="color: #FFD700 !important; font-weight: bold; letter-spacing: 1px;">{status_title}</h3>
-        <p style="color: #AAA !important; font-size: 14px;">系統已鎖定最佳體驗路徑，預計於 <b>{travel_date.strftime('%Y/%m/%d')}</b> 執行。</p>
+        <h3 style="color: #B8860B !important; font-weight: 900; letter-spacing: 1px;">{status_title}</h3>
+        <p style="color: #8B7355 !important; font-size: 14px; font-weight: bold;">系統已鎖定最佳體驗路徑，預計於 <b>{travel_date.strftime('%Y/%m/%d')}</b> 執行。</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -245,14 +246,14 @@ if st.session_state.get('generated'):
             time = "Morning" if i == 0 else ("Noon" if i == 1 else "Afternoon")
             st.markdown(f"""
             <div class="glass-card" style="padding: 20px;">
-                <div style="color: #FF8C00; font-size: 12px; letter-spacing: 2px; margin-bottom: 5px; font-weight: bold;">{time.upper()}</div>
-                <div style="font-size: 22px; font-weight: bold; margin-bottom: 10px; color: #FFF;">{spot['name']}</div>
+                <div style="color: #D2691E; font-size: 13px; letter-spacing: 2px; margin-bottom: 5px; font-weight: 900;">{time.upper()}</div>
+                <div style="font-size: 22px; font-weight: 900; margin-bottom: 10px; color: #4A3B32;">{spot['name']}</div>
                 <div style="margin-bottom: 12px;">
                     <span class="spot-tag">{spot['type']}</span>
                     <span class="spot-tag tag-red">{spot['tag']}</span>
                 </div>
-                <div style="font-size: 14px; color: #BBB; line-height: 1.6;">
-                    <span style="color:#FFD700;">💰 {spot['fee']}</span> <br>
+                <div style="font-size: 15px; color: #5C4A3D; line-height: 1.6; font-weight: 500;">
+                    <span style="color:#B8860B; font-weight: bold;">💰 {spot['fee']}</span> <br>
                     {spot['desc']}
                 </div>
             </div>
@@ -268,11 +269,11 @@ if st.session_state.get('generated'):
         for h in rec_hotels:
             st.markdown(f"""
             <div class="hotel-glass-card">
-                <div style="font-weight:bold; color:#FFF; font-size: 18px; margin-bottom: 5px;">
+                <div style="font-weight:900; color:#4A3B32; font-size: 18px; margin-bottom: 5px;">
                     {h['name']} <span class="spot-tag tag-red" style="font-size: 11px; padding: 2px 8px; vertical-align: middle;">{h['tag']}</span>
                 </div>
-                <div style="font-size:14px; color:#AAA; margin-top:6px; line-height: 1.5;">
-                    <span style="color:#D4AF37;">💲 預估花費：{h['price']} / 晚</span> <br>
+                <div style="font-size:14px; color:#5C4A3D; margin-top:6px; line-height: 1.5; font-weight: 500;">
+                    <span style="color:#D2691E; font-weight: bold;">💲 預估花費：{h['price']} / 晚</span> <br>
                     {h['desc']}
                 </div>
             </div>
